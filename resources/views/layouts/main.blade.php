@@ -20,5 +20,6 @@
         <main class="d-flex flex-column">
             @yield('page')
         </main>
+        @include('layouts.flash')
     </body>
 </html>

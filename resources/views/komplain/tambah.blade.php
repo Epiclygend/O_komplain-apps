@@ -25,25 +25,25 @@
         <div class="col-1"></div>
         <div class="col-10">
 
-            <form class="card p-5">
-
+            <form class="card p-5" method="POST">
+                @csrf
                 <div class="form-row">
                     
                     <div class="form-group col-8">
                         <label for="keluhan">Keluhan</label>
-                        <input type="text" name="keluhan" class="form-control" id="keluhan">
+                        <input type="text" name="komplain" class="form-control" id="keluhan" value="{{ old('komplain') }}">
                     </div>
 
                     <div class="form-group col-4">
-                        <label for="keluhan">Tanggal</label>
-                        <input type="text" name="date" class="form-control" id="keluhan" value="{{ now() }}" disabled>
+                        <label for="tanggalEntri">Tanggal</label>
+                        <input type="text" name="tanggalEntri" class="form-control" id="tanggalEntri" value="{{ now() }}" disabled>
                     </div>
 
                 </div>
                 
                 <div class="form-group">
                     <label for="keterangan">Keterangan</label>
-                    <textarea class="form-control" name="keterangan" id="keterangan" rows="10"></textarea>
+                    <textarea class="form-control" name="keterangan" id="keterangan" rows="10" value="{{ old('keterangan') }}"></textarea>
                 </div>
                 
                 <button type="submit" class="btn btn-primary">Submit</button>

@@ -24,7 +24,7 @@
         <div class="col-12">
 
             <div class="table-responsive">
-                <table class="table table-sm table-hover">
+                <table class="table table-sm table-borderless table-hover">
                     
                     <thead class="thead-dark">
                         <tr>

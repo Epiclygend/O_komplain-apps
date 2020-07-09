@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,8 +19,19 @@ Route::view('/', 'index')->name('home');
 
 Route::group(['prefix' => 'komplain', 'as' => 'komplain'], function(){
 
-    Route::view('/', 'komplain.index');
-    Route::view('/tambah', 'komplain.tambah')->name('.tambah');
+    Route::view('/', 'komplain.index')->name('');
+    Route::get('/tambah', 'Komplain\TambahController@showForm')->name('.tambah');
+    Route::post('/tambah', 'Komplain\TambahController@baru')->name('.tambah');
     Route::view('/respons', 'komplain.tanggapan')->name('.respon');
+    Route::post('/respons', 'Komplain\TanggapiController@tanggapi')->name('.respon');
+
+
+});
+
+Route::group(['prefix' => 'operator', 'as' => 'operator'], function(){
+    
+    Route::redirect('/', '/komplain');
+    Route::view('/signin', 'operator')->name('.signin');
+    Route::post('/signin', 'Operator\SignInController@signUp');
 
 });
