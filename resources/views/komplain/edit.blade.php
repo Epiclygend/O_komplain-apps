@@ -1,4 +1,4 @@
-@extends('layouts.main')
+{{-- @extends('layouts.main')
 
 @section('page')
     
@@ -8,13 +8,13 @@
         <div class="col-1"></div>
         
         <div class="col-3">
-            <h1>Komplain{{--  <span class="badge badge-secondary">#1</span> --}}</h1>                
+            <h1>Komplain <span class="badge badge-secondary">#1</span></h1>                
         </div>
         
         <div class="col-6"></div>
         
         <div class="col-1">
-            <a href="{{ route('komplain.index') }}" class="btn btn-outline-danger">Cancel</a>
+            <a href="{{ route('komplain') }}" class="btn btn-outline-danger">Cancel</a>
         </div>
 
         <div class="col-1"></div>
@@ -25,7 +25,7 @@
         <div class="col-1"></div>
         <div class="col-10">
 
-            <form action="{{ route('komplain.tambah') }}" class="card p-5" method="POST">
+            <form class="card p-5" method="POST">
                 @csrf
                 <div class="form-row">
                     
@@ -57,4 +57,4 @@
 
 </article>
 
-@endsection
+@endsection --}}

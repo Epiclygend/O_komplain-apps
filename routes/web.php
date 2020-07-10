@@ -1,5 +1,6 @@
 <?php
 
+use App\Komplain;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Route;
 
@@ -18,20 +19,24 @@ Route::view('/', 'index')->name('home');
 
 
 Route::group(['prefix' => 'komplain', 'as' => 'komplain'], function(){
-
-    Route::view('/', 'komplain.index')->name('');
-    Route::get('/tambah', 'Komplain\TambahController@showForm')->name('.tambah');
-    Route::post('/tambah', 'Komplain\TambahController@baru')->name('.tambah');
-    Route::view('/respons', 'komplain.tanggapan')->name('.respon');
-    Route::post('/respons', 'Komplain\TanggapiController@tanggapi')->name('.respon');
-
-
+    
+    Route::view('/', 'komplain.index', ['komplains' => Komplain::all()->sortByDesc('updated_at')->sortBy('status_proses')])->name('.index');
+    Route::get('tambah', 'Komplain\TambahController@showForm')->name('.tambah');
+    Route::post('tambah', 'Komplain\TambahController@baru')->name('.tambah');
+    Route::get('respons/{id}', 'Komplain\TanggapiController@showForm')->name('.respon');
+    Route::post('respons/{id}', 'Komplain\TanggapiController@tanggapi');
+    Route::put('selesai/{id}', 'Komplain\TanggapiController@komplainSelesai')->name('.selesai');
+    
 });
+Route::resource('komplain', 'Komplain\SimpleCRUDController')->only([
+    'destroy'
+]);
 
+        
 Route::group(['prefix' => 'operator', 'as' => 'operator'], function(){
     
     Route::redirect('/', '/komplain');
-    Route::view('/signin', 'operator')->name('.signin');
-    Route::post('/signin', 'Operator\SignInController@signUp');
+    Route::get('/signin', 'Operator\SignInController@showForm')->name('.signin');
+    Route::post('/signin', 'Operator\SignInController@signUp')->name('.signin');
 
 });

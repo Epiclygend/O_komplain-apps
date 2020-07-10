@@ -18,7 +18,7 @@ $themes = [
                 
                 <div class="row">
                     <div class="alert {{ $themes[$type] }} col" role="alert">
-                        <span>{{ $message }}</span>
+                        <span>{!! $message !!}</span>
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close" onclick="$(this).alert('close')">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -36,7 +36,7 @@ $themes = [
 
         <div class="row">
             <div class="alert {{ $themes['error'] }} col" role="alert">
-                <span>{{ $error }}</span>
+                <span>{!! $error !!}</span>
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close" onclick="$(this).alert('close')">
                     <span aria-hidden="true">&times;</span>
                 </button>

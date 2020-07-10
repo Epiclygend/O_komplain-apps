@@ -24,11 +24,13 @@ class TambahController extends Controller
 
         TambahController::validator($newKomplain_data)->validate();
         
+        $newKomplain_data['respon_keluhan'][] = TanggapiController::formatRespon($newKomplain_data['keterangan']);
+
         $newKomplain = Komplain::create($newKomplain_data);
         
-        FlashMsg::success("Tiket No.{$newKomplain->id} - Telah ditambahkan");
+        FlashMsg::success("Tiket No.{$newKomplain->id} - {$newKomplain->komplain} Telah ditambahkan");
 
-        return redirect()->route('komplain');
+        return redirect()->route('komplain.index');
     }
 
     public static function validator(Array $data)

@@ -19,7 +19,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-            <a {!! $generateNavAttributes('komplain') !!}>Komplain <span class="sr-only">(current)</span></a>
+            <a {!! $generateNavAttributes('komplain.index') !!}>Komplain <span class="sr-only">(current)</span></a>
             {{-- <a {!! $generateNavAttributes('operator') !!}>Operator</a> --}}
         </div>
     </div>

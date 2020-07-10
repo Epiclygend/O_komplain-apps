@@ -9,6 +9,16 @@ use Illuminate\Support\Facades\Validator;
 
 class SignInController extends Controller
 {
+    public function showForm(Request $request)
+    {
+        session()->flash('temp', [
+            'redirect' => session()->previousUrl(),
+            'input' => $request->all(),
+        ]);
+
+        return view('operator');
+    }
+    
     public function signUp(Request $request)
     {
         $signUp_data = [
@@ -20,7 +30,8 @@ class SignInController extends Controller
 
         session(['_operator' => Operator::firstOrCreate($signUp_data)]);
 
-        return back();
+        // return session('temp')['redirect'];
+        return redirect()->route('komplain.index');
     }
 
 
