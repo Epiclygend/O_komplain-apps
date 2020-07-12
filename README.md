@@ -1,17 +1,20 @@
 # Installation Guide
 
 ## Requirements
-- PHP 7.3
-- MySQL Database
-- NPM
-- Composer
+- [PHP 7.3](https://www.php.net/)
+- [MySQL](https://www.mysql.com/) Database
+- [NPM](https://www.npmjs.com/)
+- [Composer](https://getcomposer.org/)
+
+> PHP dan MySQL bisa menggunakan [Xampp](https://www.apachefriends.org/download.html)
+
+> NPM akan terinstall bersama [node.js](nodejs.org)
+
 
 ## Mode Produksi (Jadi)
 - Clone / Download repository ini kemudian arahkan terminal ke direktori hasil Clone
 - Ketikkan perintah berikut di terminal
-
-```batchfile npm install && composer install && npm run prod```
-
+``` npm install && composer install && npm run prod ```
 - Copy file ```.env.example```, kemudian hasil copy-an direname menjadi ```.env```
 - Konfigurasikan semua yang ada dalam file ```.env```
 **Konfigurasi Wajib**
@@ -24,18 +27,14 @@ APP_URL = [Sesuai Url Direktori Kalian]
 // dan semua yang diawali DB_
 ```
 - Ketikkan perintah berikut di terminal
-
-```batchfile php artisan key:generate && php artisan migrate ```
-
+``` php artisan key:generate && php artisan migrate ```
 - Done
-**Direktori web berada di ```public/```**
+> Direktori web berada di ```public/```
 
 ## Mode Development
 - Clone / Download repository ini kemudian arahkan terminal ke direktori hasil Clone
 - Ketikkan perintah berikut di terminal
-
-```batchfile npm install && composer install && npm run dev```
-
+``` npm install && composer install && npm run dev ```
 - Copy file ```.env.example```, kemudian hasil copy-an direname menjadi ```.env```
 - Konfigurasikan semua yang ada dalam file ```.env```
 **Konfigurasi Wajib**
@@ -48,13 +47,10 @@ APP_URL = [Sesuai Url Direktori Kalian]
 // dan semua yang diawali DB_
 ```
 - Ketikkan perintah berikut di terminal
-
-```batchfile php artisan key:generate && php artisan migrate ```
-
+``` php artisan key:generate && php artisan migrate ```
 - Done
 - Untuk menjalankan silahkan ketikkan perintah berikut di terminal
-
-```php artisan serve```
+``` php artisan serve ```
 
 
 # Created with
