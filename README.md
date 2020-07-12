@@ -1,3 +1,64 @@
+# Installation Guide
+
+## Requirements
+- PHP 7.3
+- MySQL Database
+- NPM
+- Composer
+
+## Mode Produksi (Jadi)
+- Clone / Download repository ini kemudian arahkan terminal ke direktori hasil Clone
+- Ketikkan perintah berikut di terminal
+
+```batchfile npm install && composer install && npm run prod```
+
+- Copy file ```.env.example```, kemudian hasil copy-an direname menjadi ```.env```
+- Konfigurasikan semua yang ada dalam file ```.env```
+**Konfigurasi Wajib**
+```
+// env
+
+APP_ENV = Production
+APP_URL = [Sesuai Url Direktori Kalian]
+
+// dan semua yang diawali DB_
+```
+- Ketikkan perintah berikut di terminal
+
+```batchfile php artisan key:generate && php artisan migrate ```
+
+- Done
+**Direktori web berada di ```public/```**
+
+## Mode Development
+- Clone / Download repository ini kemudian arahkan terminal ke direktori hasil Clone
+- Ketikkan perintah berikut di terminal
+
+```batchfile npm install && composer install && npm run dev```
+
+- Copy file ```.env.example```, kemudian hasil copy-an direname menjadi ```.env```
+- Konfigurasikan semua yang ada dalam file ```.env```
+**Konfigurasi Wajib**
+```
+// env
+
+APP_ENV = Local
+APP_URL = [Sesuai Url Direktori Kalian]
+
+// dan semua yang diawali DB_
+```
+- Ketikkan perintah berikut di terminal
+
+```batchfile php artisan key:generate && php artisan migrate ```
+
+- Done
+- Untuk menjalankan silahkan ketikkan perintah berikut di terminal
+
+```php artisan serve```
+
+
+# Created with
+
 <p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
 
 <p align="center">
