@@ -20,7 +20,6 @@ Route::view('/', 'index')->name('home');
 
 Route::group(['prefix' => 'komplain', 'as' => 'komplain'], function(){
     
-    Route::view('/', 'komplain.index', ['komplains' => Komplain::all()->sortByDesc('updated_at')->sortBy('status_proses')])->name('.index');
     Route::get('tambah', 'Komplain\TambahController@showForm')->name('.tambah');
     Route::post('tambah', 'Komplain\TambahController@baru')->name('.tambah');
     Route::get('respons/{id}', 'Komplain\TanggapiController@showForm')->name('.respon');
@@ -29,7 +28,7 @@ Route::group(['prefix' => 'komplain', 'as' => 'komplain'], function(){
     
 });
 Route::resource('komplain', 'Komplain\SimpleCRUDController')->only([
-    'destroy'
+    'index', 'destroy'
 ]);
 
         

@@ -16,7 +16,9 @@ class SimpleCRUDController extends Controller
      */
     public function index()
     {
-        //
+        $collection = Komplain::all()->sortByDesc('updated_at')->sortBy('status_proses');
+
+        return view('komplain.index', ['komplains' => $collection]);
     }
 
     /**
