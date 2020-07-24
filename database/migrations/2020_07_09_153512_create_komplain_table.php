@@ -19,7 +19,8 @@ class CreateKomplainTable extends Migration
             $table->string('keterangan');
             $table->boolean('status_proses')->default(false);
             $table->foreignId('operator_id')->nullable()->constrained('operator');
-            $table->json('respon_keluhan')->nullable();
+            // $table->json('respon_keluhan')->nullable();
+            $table->text('respon_keluhan')->nullable();
             $table->timestamps();
         });
     }
